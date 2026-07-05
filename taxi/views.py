@@ -32,11 +32,11 @@ class CarDetailView(generic.DetailView):
     model = Car
 
 
-class DriverDetailView(generic.DetailView):
+class DriverListView(generic.ListView):
     model = Driver
     paginate_by = 5
 
 
-class DriverListView(generic.ListView):
+class DriverDetailView(generic.DetailView):
     model = Driver
     queryset = Driver.objects.prefetch_related("cars__manufacturer")
